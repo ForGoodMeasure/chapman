@@ -1,0 +1,34 @@
+{
+  "global": {
+    "aws_profile": "fgm-dev",
+    "aws_s3_bucket": "chapman-skate",
+    "aws_region": "us-east-1",
+    "favicon_url": "",
+    "ga_id": "",
+    "port": 3000,
+    "app_id": "chapman",
+    "title": "Chapman Skateboards",
+    "description": ""
+  },
+  "stage": {
+    "prod": {
+      "resourceBase": "",
+      "assetBase": ""
+    },
+    "dev": {
+      "resourceBase": "",
+      "assetBase": ""
+    },
+    "static": {
+      "resourceBase": "",
+      "assetBase": ""
+    },
+    "lambda": {
+      "resourceBase": "",
+      "assetBase": ""
+    }
+  },
+  "staticRouteConfig": {
+    "routes": ["/"]
+  }
+}
