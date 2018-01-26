@@ -8618,6 +8618,8 @@ var _util = __webpack_require__(184);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var VIDEO_ID = 'FH0qBWrug6Y';
+
 var Style = _styledComponents2.default.div.withConfig({
   displayName: 'app__Style'
 })(['a{display:block;}.content{background:papayawhip;text-align:center;padding:1em;}iframe{width:100vw;height:100vh;pointer-events:none;}.text{height:100vh;position:fixed;color:white;width:100vw;display:flex;flex-direction:column;justify-content:center;font-size:13em;mix-blend-mode:soft-light;line-height:0.9em;letter-spacing:0.2em;}']);
@@ -8628,13 +8630,8 @@ var App = function App(props, _ref) {
   return _react2.default.createElement(
     Style,
     null,
-    _react2.default.createElement(
-      'div',
-      { className: 'text' },
-      'For Good Measure'
-    ),
     _react2.default.createElement('iframe', {
-      src: 'https://www.youtube.com/embed/OSzab-CySbs?controls=0&autoplay=1&showinfo=0&modestbranding=1',
+      src: 'https://www.youtube.com/embed/' + VIDEO_ID + '?controls=0&autoplay=1&showinfo=0&modestbranding=1',
       frameBorder: '0',
       allow: 'autoplay; encrypted-media',
       allowFullScreen: true })

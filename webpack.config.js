@@ -7,7 +7,8 @@ const serverConfig = {
     __dirname: false
   },
   entry: {
-    server: './src/server/index.js'
+    server: './src/server/index.js',
+    lambda: './lambda.js'
   },
   output: {
     filename: '[name]-bundle.js',
@@ -17,6 +18,9 @@ const serverConfig = {
   },
   resolve: {
     extensions: ['.js', '.jsx']
+  },
+  externals: {
+      googleapis: "commonjs googleapis"
   },
   module: {
     loaders: [

@@ -11,19 +11,15 @@ custom:
 
 package:
   include:
-    - dist/server/server-bundle.js
+    - node_modules
+    - src/functions/get-stream.js
     - lambda.js
-  exclude:
-    - ./**
 
 functions:
-  server:
-    handler: lambda.handler
-    environment:
-      node_env: lambda
+  get-stream:
+    handler: lambda.get
     events:
-      - http: GET /
-      - http: GET /{proxy+}
+      - http: GET /get-stream
 
 resources:
   Resources:

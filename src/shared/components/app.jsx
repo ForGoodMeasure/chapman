@@ -5,6 +5,8 @@ import styled from 'styled-components';
 
 import { localContextType } from '../util';
 
+const VIDEO_ID = 'FH0qBWrug6Y';
+
 const Style = styled.div`
   a {
     display: block;
@@ -37,11 +39,10 @@ const Style = styled.div`
 const App = (props, {localContext}) => {
   return (
     <Style>
-      <div className="text">
-        For Good Measure
-      </div>
       <iframe
-        src="https://www.youtube.com/embed/OSzab-CySbs?controls=0&autoplay=1&showinfo=0&modestbranding=1"
+        src={
+          `https://www.youtube.com/embed/${ VIDEO_ID }?controls=0&autoplay=1&showinfo=0&modestbranding=1`
+        }
         frameBorder="0"
         allow="autoplay; encrypted-media"
         allowFullScreen />
