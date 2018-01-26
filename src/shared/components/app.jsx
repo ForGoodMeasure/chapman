@@ -41,7 +41,7 @@ const App = (props, {localContext}) => {
     <Style>
       <iframe
         src={
-          `https://www.youtube.com/embed/${ VIDEO_ID }?controls=0&autoplay=1&showinfo=0&modestbranding=1`
+          `https://www.youtube.com/embed/${ props.data.data.id }?controls=0&autoplay=1&showinfo=0&modestbranding=1`
         }
         frameBorder="0"
         allow="autoplay; encrypted-media"

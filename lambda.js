@@ -12,14 +12,18 @@ exports.get = function (event, context, callback) {
       return callback(null, {
           "isBase64Encoded": false,
           "statusCode": 500,
-          "headers": {},
+          "headers": {
+            'access-control-allow-origin': '*'
+          },
           "body": "Error" + err
       })
     }
     callback(null, {
       "isBase64Encoded": false,
       "statusCode": 200,
-      "headers": {},
+      "headers": {
+        'access-control-allow-origin': '*'
+      },
       "body": JSON.stringify(res)
     })
   });
