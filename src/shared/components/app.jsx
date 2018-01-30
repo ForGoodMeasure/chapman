@@ -8,6 +8,7 @@ import { localContextType } from '../util';
 const VIDEO_ID = 'FH0qBWrug6Y';
 
 const Style = styled.div`
+  cursor: pointer;
   a {
     display: block;
   }
@@ -37,6 +38,9 @@ const Style = styled.div`
 `;
 
 const App = (props, {localContext}) => {
+  if (!props.data.data.id) {
+    return <div />;
+  }
   return (
     <Style>
       <iframe

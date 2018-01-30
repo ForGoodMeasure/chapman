@@ -10164,11 +10164,14 @@ var VIDEO_ID = 'FH0qBWrug6Y';
 
 var Style = _styledComponents2.default.div.withConfig({
   displayName: 'app__Style'
-})(['a{display:block;}.content{background:papayawhip;text-align:center;padding:1em;}iframe{width:100vw;height:100vh;pointer-events:none;}.text{height:100vh;position:fixed;color:white;width:100vw;display:flex;flex-direction:column;justify-content:center;font-size:13em;mix-blend-mode:soft-light;line-height:0.9em;letter-spacing:0.2em;}']);
+})(['cursor:pointer;a{display:block;}.content{background:papayawhip;text-align:center;padding:1em;}iframe{width:100vw;height:100vh;pointer-events:none;}.text{height:100vh;position:fixed;color:white;width:100vw;display:flex;flex-direction:column;justify-content:center;font-size:13em;mix-blend-mode:soft-light;line-height:0.9em;letter-spacing:0.2em;}']);
 
 var App = function App(props, _ref) {
   var localContext = _ref.localContext;
 
+  if (!props.data.data.id) {
+    return _react2.default.createElement('div', null);
+  }
   return _react2.default.createElement(
     Style,
     null,
