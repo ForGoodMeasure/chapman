@@ -22,6 +22,11 @@ const Style = styled.div`
     height: 100vh;
     pointer-events: none;
   }
+  iframe#badtv {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
   .text {
     height: 100vh;
     position: fixed;
@@ -43,6 +48,10 @@ const App = (props, {localContext}) => {
   }
   return (
     <Style>
+      <iframe
+        id="badtv"
+        src="https://s3-us-west-1.amazonaws.com/chapman-bad-tv/demo.html"
+      />
       <iframe
         src={
           `https://www.youtube.com/embed/${ props.data.data.id }?controls=0&autoplay=1&showinfo=0&modestbranding=1`
