@@ -6,6 +6,12 @@ import { COLORS } from './constants';
 export default localContext => injectGlobal`
   ${ styledNormalize };
 
+  canvas {
+    position: absolute;
+    top: 0;
+    mix-blend-mode: overlay;
+  }
+
   @font-face {
     font-family: 'Styrene';
     font-weight: 300;
@@ -15,7 +21,6 @@ export default localContext => injectGlobal`
   body {
     font-size: 18px;
     font-family: 'Styrene', sans-serif;
-    cursor: none;
   }
   body * {
     margin: 0;

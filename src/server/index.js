@@ -29,6 +29,8 @@ app.use("/fonts", express.static(`${__dirname}/../assets/fonts`))
 app.use("/images", express.static(`${__dirname}/../assets/images`))
 app.use("/js", express.static(`${__dirname}/../assets/js`))
 
+app.use("/bad-tv", express.static(`${__dirname}/../../bad-tv`))
+
 app.get('/health', (req, res) => res.send(APP_ID))
 
 app.use('/admin', adminApp(config))
