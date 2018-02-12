@@ -93,9 +93,9 @@ const App = (props, {localContext}) => {
   }
   return (
     <Style>
-      <div class="container">
-        <div class="video-bg cover">
-          <div class="video-fg">
+      <div className="container">
+        <div className="video-bg cover">
+          <div className="video-fg">
             <iframe
               src={
                 `https://www.youtube.com/embed/${ props.data.data.id }?controls=0&autoplay=1&showinfo=0&modestbranding=1`
