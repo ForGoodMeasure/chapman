@@ -35,6 +35,56 @@ const Style = styled.div`
     line-height: 0.9em;
     letter-spacing: 0.2em;
   }
+
+  /* youtube object-fit https://codepen.io/cvn/pen/WbXEoX/ */
+  .container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  .video-bg {
+    background: white;
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    z-index: 1;
+    /* overflow: hidden; */
+  }
+  .video-bg .video-fg,
+  .video-bg iframe,
+  .video-bg video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  /*
+    Full page video background
+    Simulate object-fit: cover
+    Based on http://fvsch.com/code/video-background/
+  */
+
+  @media (min-aspect-ratio: 16/9) {
+    .video-bg.cover .video-fg { height: 300%; top: -100%; }
+  }
+  @media (max-aspect-ratio: 16/9) {
+    .video-bg.cover .video-fg { width: 300%; left: -100%; }
+  }
+
+  @supports (object-fit: cover) {
+    .video-bg.cover .video-fg.supports-cover {
+      width: 100%;
+      height: 100%;
+      top: 0; left: 0;
+    }
+    .video-bg.cover video {
+      object-fit: cover;
+    }
+  }
+
 `;
 
 const App = (props, {localContext}) => {
@@ -43,13 +93,19 @@ const App = (props, {localContext}) => {
   }
   return (
     <Style>
-      <iframe
-        src={
-          `https://www.youtube.com/embed/${ props.data.data.id }?controls=0&autoplay=1&showinfo=0&modestbranding=1`
-        }
-        frameBorder="0"
-        allow="autoplay; encrypted-media"
-        allowFullScreen />
+      <div class="container">
+        <div class="video-bg cover">
+          <div class="video-fg">
+            <iframe
+              src={
+                `https://www.youtube.com/embed/${ props.data.data.id }?controls=0&autoplay=1&showinfo=0&modestbranding=1`
+              }
+              frameBorder="0"
+              allow="autoplay; encrypted-media"
+              allowFullScreen />
+          </div>
+        </div>
+      </div>
     </Style>
   );
 }

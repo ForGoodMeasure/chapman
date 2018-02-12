@@ -10164,7 +10164,7 @@ var VIDEO_ID = 'FH0qBWrug6Y';
 
 var Style = _styledComponents2.default.div.withConfig({
   displayName: 'app__Style'
-})(['cursor:pointer;a{display:block;}.content{background:papayawhip;text-align:center;padding:1em;}iframe{width:100vw;height:100vh;pointer-events:none;}.text{height:100vh;position:fixed;color:white;width:100vw;display:flex;flex-direction:column;justify-content:center;font-size:13em;mix-blend-mode:soft-light;line-height:0.9em;letter-spacing:0.2em;}']);
+})(['cursor:pointer;a{display:block;}.content{background:papayawhip;text-align:center;padding:1em;}iframe{width:100vw;height:100vh;pointer-events:none;}.text{height:100vh;position:fixed;color:white;width:100vw;display:flex;flex-direction:column;justify-content:center;font-size:13em;mix-blend-mode:soft-light;line-height:0.9em;letter-spacing:0.2em;}.container{position:fixed;top:0;left:0;right:0;bottom:0;}.container:before{content:\'\';z-index:2;position:absolute;width:100%;height:100%;box-shadow:0 0 0 10px red;pointer-events:none;}.video-bg{background:white;position:absolute;top:0;right:0;bottom:0;left:0;z-index:1;}.video-bg .video-fg,.video-bg iframe,.video-bg video{position:absolute;top:0;left:0;width:100%;height:100%;}@media (min-aspect-ratio:16/9){.video-bg.cover .video-fg{height:300%;top:-100%;}}@media (max-aspect-ratio:16/9){.video-bg.cover .video-fg{width:300%;left:-100%;}}@supports (object-fit:cover){.video-bg.cover .video-fg.supports-cover{width:100%;height:100%;top:0;left:0;}.video-bg.cover video{object-fit:cover;}}']);
 
 var App = function App(props, _ref) {
   var localContext = _ref.localContext;
@@ -10175,11 +10175,23 @@ var App = function App(props, _ref) {
   return _react2.default.createElement(
     Style,
     null,
-    _react2.default.createElement('iframe', {
-      src: 'https://www.youtube.com/embed/' + props.data.data.id + '?controls=0&autoplay=1&showinfo=0&modestbranding=1',
-      frameBorder: '0',
-      allow: 'autoplay; encrypted-media',
-      allowFullScreen: true })
+    _react2.default.createElement(
+      'div',
+      { 'class': 'container' },
+      _react2.default.createElement(
+        'div',
+        { 'class': 'video-bg cover' },
+        _react2.default.createElement(
+          'div',
+          { 'class': 'video-fg' },
+          _react2.default.createElement('iframe', {
+            src: 'https://www.youtube.com/embed/' + props.data.data.id + '?controls=0&autoplay=1&showinfo=0&modestbranding=1',
+            frameBorder: '0',
+            allow: 'autoplay; encrypted-media',
+            allowFullScreen: true })
+        )
+      )
+    )
   );
 };
 
