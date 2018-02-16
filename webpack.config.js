@@ -1,4 +1,5 @@
 const path = require('path');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const serverConfig = {
   target: 'node',
@@ -8,7 +9,7 @@ const serverConfig = {
   },
   entry: {
     server: './src/server/index.js',
-    // functions: './src/functions/index.js'
+    functions: './src/functions/index.js'
   },
   output: {
     filename: '[name]-bundle.js',
@@ -19,6 +20,15 @@ const serverConfig = {
   resolve: {
     extensions: ['.js', '.jsx']
   },
+  externals: {
+    googleapis: "commonjs googleapis"
+  },
+  plugins: [
+    new CopyWebpackPlugin([
+      { from: 'src/functions/node_modules/', to: 'node_modules' },
+      { from: 'src/assets/', to: '../assets' },
+    ]),
+  ],
   module: {
     loaders: [
       {
