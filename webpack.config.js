@@ -7,8 +7,7 @@ const serverConfig = {
     __dirname: false
   },
   entry: {
-    server: './src/server/index.js',
-    lambda: './lambda.js'
+    server: './src/server/index.js'
   },
   output: {
     filename: '[name]-bundle.js',
