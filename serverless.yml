@@ -11,17 +11,16 @@ custom:
 
 package:
   include:
-    - node_modules
-    - src/functions
-    - lambda.js
+    - dist/server/functions-bundle.js
+
 
 functions:
   get-stream:
-    handler: lambda.getStream
+    handler: dist/server/functions-bundle.getStream
     events:
       - http: GET /get-stream
   get-boards:
-    handler: lambda.getBoards
+    handler: dist/server/functions-bundle.getBoards
     events:
       - http: GET /get-boards
 

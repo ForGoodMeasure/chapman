@@ -1,7 +1,5 @@
-/* eslint-disable no-var */
-var app = require('./dist/server/server-bundle');
-var getStream = require('./src/functions/get-stream.js');
-var getBoards= require('./src/functions/get-boards.js');
+import getStream from './get-stream.js'
+import getBoards from './get-boards.js'
 
 const httpWrapper = handler => (event, context, callback) => {
   handler((err, res) => {
@@ -25,10 +23,6 @@ const httpWrapper = handler => (event, context, callback) => {
     })
   });
 }
-
-exports.handler = function (event, context) {
-  app.awsServerlessProxy(event, context)
-};
 
 exports.getStream = httpWrapper(getStream);
 exports.getBoards = httpWrapper(getBoards);
