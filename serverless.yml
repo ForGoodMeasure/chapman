@@ -14,6 +14,13 @@ package:
     - dist/server
 
 functions:
+  web-server:
+    handler: dist/server/server-bundle.awsServerlessProxy
+    environment:
+      node_env: lambda
+    events:
+      - http: GET /
+      - http: GET /{proxy+}
   get-stream:
     handler: dist/server/functions-bundle.getStream
     events:
