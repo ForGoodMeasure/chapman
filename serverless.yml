@@ -11,16 +11,16 @@ custom:
 
 package:
   include:
-    - dist/server/functions-bundle.js
-
+    - src/functions/index.js
+    - node_modules
 
 functions:
   get-stream:
-    handler: dist/server/functions-bundle.getStream
+    handler: src/functions/index.getStream
     events:
       - http: GET /get-stream
   get-boards:
-    handler: dist/server/functions-bundle.getBoards
+    handler: src/functions/index.getBoards
     events:
       - http: GET /get-boards
 

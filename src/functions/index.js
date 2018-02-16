@@ -1,5 +1,5 @@
-import getStream from './get-stream.js'
-import getBoards from './get-boards.js'
+var getStream = require('./get-stream.js')
+var getBoards = require('./get-boards.js')
 
 const httpWrapper = handler => (event, context, callback) => {
   handler((err, res) => {
