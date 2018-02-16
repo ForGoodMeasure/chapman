@@ -1,13 +1,13 @@
 
 require([ './bad-tv/package.require.js'
-	], function(){
+	], function() { window.initBadTv = function(){
 	var renderer	= new THREE.WebGLRenderer({
 		alpha: true,
 		premultipliedAlpha: false
 	});
 	var camera, geometry;
 
-	document.body.appendChild( renderer.domElement );
+	document.getElementById('bad-tv-root').appendChild( renderer.domElement );
 	var onRenderFcts= [];
 	var scene	= new THREE.Scene();
 
@@ -91,4 +91,5 @@ require([ './bad-tv/package.require.js'
 
 		geometry	= new THREE.PlaneGeometry(window.innerWidth, window.innerHeight);
 	}
+}
 })

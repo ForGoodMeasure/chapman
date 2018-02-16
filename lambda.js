@@ -1,13 +1,10 @@
 /* eslint-disable no-var */
 var app = require('./dist/server/server-bundle');
 var getStream = require('./src/functions/get-stream.js');
+var getBoards= require('./src/functions/get-boards.js');
 
-exports.handler = function (event, context) {
-  app.awsServerlessProxy(event, context)
-};
-
-exports.get = function (event, context, callback) {
-  getStream((err, res) => {
+const httpWrapper = handler => (event, context, callback) => {
+  handler((err, res) => {
     if (err) {
       return callback(null, {
           "isBase64Encoded": false,
@@ -27,4 +24,11 @@ exports.get = function (event, context, callback) {
       "body": JSON.stringify(res)
     })
   });
+}
+
+exports.handler = function (event, context) {
+  app.awsServerlessProxy(event, context)
 };
+
+exports.getStream = httpWrapper(getStream);
+exports.getBoards = httpWrapper(getBoards);

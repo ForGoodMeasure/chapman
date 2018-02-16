@@ -12,14 +12,18 @@ custom:
 package:
   include:
     - node_modules
-    - src/functions/get-stream.js
+    - src/functions
     - lambda.js
 
 functions:
   get-stream:
-    handler: lambda.get
+    handler: lambda.getStream
     events:
       - http: GET /get-stream
+  get-boards:
+    handler: lambda.getBoards
+    events:
+      - http: GET /get-boards
 
 resources:
   Resources:

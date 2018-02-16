@@ -87,27 +87,40 @@ const Style = styled.div`
 
 `;
 
-const App = (props, {localContext}) => {
-  if (!props.data.data.id) {
-    return <div />;
+
+class App extends React.Component {
+
+
+
+  componentDidMount() {
+    initBadTv();
   }
-  return (
-    <Style>
-      <div className="container">
-        <div className="video-bg cover">
-          <div className="video-fg">
-            <iframe
-              src={
-                `https://www.youtube.com/embed/${ props.data.data.id }?controls=0&autoplay=1&showinfo=0&modestbranding=1`
-              }
-              frameBorder="0"
-              allow="autoplay; encrypted-media"
-              allowFullScreen />
+
+  render () {
+    const props = this.props;
+    if (!props.data.data.id) {
+      return <div />;
+    }
+    return (
+      <Style>
+        <div className="container">
+          <div className="video-bg cover">
+            <div className="video-fg">
+              <iframe
+                src={
+                  `https://www.youtube.com/embed/${ props.data.data.id }?controls=0&autoplay=1&showinfo=0&modestbranding=1`
+                }
+                frameBorder="0"
+                allow="autoplay; encrypted-media"
+                allowFullScreen />
+            </div>
           </div>
         </div>
-      </div>
-    </Style>
-  );
+        <div id="bad-tv-root" />
+      </Style>
+    );
+  }
+
 }
 
 App.contextTypes = localContextType;

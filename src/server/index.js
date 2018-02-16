@@ -33,7 +33,7 @@ app.use("/bad-tv", express.static(`${__dirname}/../../bad-tv`))
 
 app.get('/health', (req, res) => res.send(APP_ID))
 
-app.use('/admin', adminApp(config))
+// app.use('/admin', adminApp(config))
 
 app.use(redirectApp)
 

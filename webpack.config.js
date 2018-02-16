@@ -19,16 +19,13 @@ const serverConfig = {
   resolve: {
     extensions: ['.js', '.jsx']
   },
-  externals: {
-      googleapis: "commonjs googleapis"
-  },
   module: {
     loaders: [
       {
         loader: 'babel-loader',
         exclude: /node_modules/,
         query: {
-          presets: ['es2015', 'stage-2', 'react'],
+          presets: ['env', 'stage-2', 'react'],
           plugins: [
             "transform-class-properties",
             ["inline-json-import", {}],
@@ -59,7 +56,7 @@ const browserConfig = {
         loader: 'babel-loader',
         exclude: /node_modules/,
         query: {
-          presets: ['es2015', 'stage-2', 'react'],
+          presets: ['env', 'stage-2', 'react'],
           plugins: [
             "transform-class-properties",
             ["inline-json-import", {}],
@@ -90,7 +87,7 @@ const adminAppConfig = {
         loader: 'babel-loader',
         exclude: /node_modules/,
         query: {
-          presets: ['es2015', 'stage-2', 'react'],
+          presets: ['env', 'stage-2', 'react'],
           plugins: ["transform-class-properties", ["inline-json-import", {}]]
         }
       }
@@ -98,4 +95,4 @@ const adminAppConfig = {
   }
 }
 
-module.exports = [serverConfig, browserConfig, adminAppConfig];
+module.exports = [serverConfig, browserConfig];
