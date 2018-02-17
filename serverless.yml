@@ -42,6 +42,8 @@ resources:
         BucketName: ${self:custom.s3BucketName}
         WebsiteConfiguration:
           IndexDocument: index.html
+        VersioningConfiguration:
+          Status: Enabled
     CloudfrontDistribution:
       Type: AWS::CloudFront::Distribution
       Properties:
