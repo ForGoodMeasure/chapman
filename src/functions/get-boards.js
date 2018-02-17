@@ -1,6 +1,6 @@
 
 
-module.exports = function getStream(callback) {
+module.exports = function getStream(event, callback) {
   callback(null, { hello: 'friend' })
 
 };

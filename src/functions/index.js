@@ -1,8 +1,9 @@
 var getStream = require('./get-stream.js')
 var getBoards = require('./get-boards.js')
+var restClient = require('./rest-client.js')
 
 const httpWrapper = handler => (event, context, callback) => {
-  handler((err, res) => {
+  handler(event, (err, res) => {
     if (err) {
       return callback(null, {
           "isBase64Encoded": false,
@@ -26,3 +27,4 @@ const httpWrapper = handler => (event, context, callback) => {
 
 exports.getStream = httpWrapper(getStream);
 exports.getBoards = httpWrapper(getBoards);
+exports.restClient = httpWrapper(restClient);

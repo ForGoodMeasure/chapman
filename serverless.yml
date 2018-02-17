@@ -29,6 +29,10 @@ functions:
     handler: dist/server/functions-bundle.getBoards
     events:
       - http: GET /get-boards
+  rest-client:
+    handler: dist/server/functions-bundle.restClient
+    events:
+      - http: POST /rest-client
 
 resources:
   Resources:

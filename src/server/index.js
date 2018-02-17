@@ -9,6 +9,7 @@ import adminApp from '../../lib/admin-app.js'
 import redirectApp from './redirect.js'
 import globalStyles from '../shared/style.js'
 import genStore from '../shared/gen-store'
+import localApi from './local-api';
 
 import config from '../../config.json'
 
@@ -32,6 +33,8 @@ app.use("/js", express.static(`${__dirname}/../assets/js`))
 app.use("/bad-tv", express.static(`${__dirname}/../../bad-tv`))
 
 app.get('/health', (req, res) => res.send(APP_ID))
+
+app.use('/api', localApi);
 
 // app.use('/admin', adminApp(config))
 

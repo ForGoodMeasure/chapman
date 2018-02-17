@@ -14,19 +14,23 @@
   "stage": {
     "prod": {
       "resourceBase": "",
-      "assetBase": ""
+      "assetBase": "",
+      "apiBase": ""
     },
     "dev": {
       "resourceBase": "",
-      "assetBase": ""
+      "assetBase": "",
+      "apiBase": "/api"
     },
     "static": {
       "resourceBase": "",
-      "assetBase": ""
+      "assetBase": "",
+      "apiBase": ""
     },
     "lambda": {
       "resourceBase": "",
-      "assetBase": ""
+      "assetBase": "",
+      "apiBase": ""
     }
   },
   "staticRouteConfig": {

@@ -8,7 +8,7 @@ const REDIRECT_URL = "localhost:3000/redirect";
 const ACCESS_TOKEN = "ya29.GltOBYWdH3a1nB923X_dDxWoFnx5JbjpZGZo1pd35Ao0UWZCQ87mU3jU3YDlXzYJcxk254xt7CfJAWg9m9g1XEhJj9plI48rEeOvg2nB6Psh_1_1JCZQ0wPdfdZ9";
 const REFRESH_TOKEN = "1/rBsyJkY_iDeKURqFJnDXy0KokrLgRsPKIVFIixukcYE"
 
-module.exports = function getStream(callback) {
+module.exports = function getStream(event, callback) {
 
   const oauth2Client = new google.auth.OAuth2(
     CLIENT_ID,

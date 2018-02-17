@@ -35,10 +35,14 @@ const serverConfig = {
         loader: 'babel-loader',
         exclude: /node_modules/,
         query: {
-          presets: ['env', 'stage-2', 'react'],
+          presets: [
+            '@babel/preset-env',
+            '@babel/preset-stage-1',
+            '@babel/preset-react'
+          ],
           plugins: [
             "transform-class-properties",
-            ["inline-json-import", {}],
+            "inline-json-import",
             "styled-components"
           ]
         }
@@ -66,7 +70,11 @@ const browserConfig = {
         loader: 'babel-loader',
         exclude: /node_modules/,
         query: {
-          presets: ['env', 'stage-2', 'react'],
+          presets: [
+            '@babel/preset-env',
+            '@babel/preset-stage-1',
+            '@babel/preset-react'
+          ],
           plugins: [
             "transform-class-properties",
             ["inline-json-import", {}],
@@ -76,30 +84,6 @@ const browserConfig = {
       }, {
         test: /\.svg$/,
         loader: 'svg-inline-loader'
-      }
-    ]
-  }
-}
-
-const adminAppConfig = {
-  target: 'web',
-  entry: './src/admin/index.js',
-  output: {
-    filename: 'admin-bundle.js',
-    path: path.resolve(__dirname, 'dist/assets/js')
-  },
-  resolve: {
-    extensions: ['.js', '.jsx']
-  },
-  module: {
-    loaders: [
-      {
-        loader: 'babel-loader',
-        exclude: /node_modules/,
-        query: {
-          presets: ['env', 'stage-2', 'react'],
-          plugins: ["transform-class-properties", ["inline-json-import", {}]]
-        }
       }
     ]
   }
