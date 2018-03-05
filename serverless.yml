@@ -5,11 +5,15 @@ provider:
   runtime: nodejs6.10
   region: us-east-1
   profile: fgm-dev
+  deploymentBucket:
+    name: fgm-serverless-deployments
 
 custom:
   s3BucketName: chapman-skate
 
 package:
+  exclude:
+    - ./**
   include:
     - dist/server
 
