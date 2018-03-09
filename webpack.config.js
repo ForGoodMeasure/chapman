@@ -20,9 +20,10 @@ const serverConfig = {
   resolve: {
     extensions: ['.js', '.jsx']
   },
-  externals: {
-    googleapis: "commonjs googleapis"
-  },
+  externals: [
+    'aws-sdk',
+    { googleapis: "commonjs googleapis" }
+  ],
   plugins: [
     new CopyWebpackPlugin([
       { from: 'src/functions/node_modules/', to: 'node_modules' },

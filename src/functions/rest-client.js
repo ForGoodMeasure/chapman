@@ -1,24 +1,27 @@
+import AWS from 'aws-sdk';
+
+AWS.config.update({
+  accessKeyId: process.env.aws_id,
+  secretAccessKey: process.env.aws_key,
+  region: 'us-east-1'
+});
+const dynamodb = new AWS.DynamoDB.DocumentClient();
 
 const restClient = (event, callback) => {
-  callback(null, {
-    data: [{
-      "id": 1,
-      "title": "in quibusdam tempore odit est dolorem",
-      "body": "itaque id aut magnam\npraesentium quia et ea odit et ea voluptas et\nsapiente quia nihil amet occaecati quia id voluptatem\nincidunt ea est distinctio odio",
-      "userId": 2
-    }, {
-      "id": 2,
-      "title": " ASS in quibusdam tempore odit est dolorem",
-      "body": "itaque id aut magnam\npraesentium quia et ea odit et ea voluptas et\nsapiente quia nihil amet occaecati quia id voluptatem\nincidunt ea est distinctio odio",
-      "userId": 2
-    }, {
-      "id": 3,
-      "title": "in quibusdam tempore odit est dolorem",
-      "body": "itaque id aut magnam\npraesentium quia et ea odit et ea voluptas et\nsapiente quia nihil amet occaecati quia id voluptatem\nincidunt ea est distinctio odio",
-      "userId": 2
-    }],
-    total: 3
-  });
+
+  const params = {
+    TableName: 'chapman-test-2'
+  };
+
+  dynamodb.scan(params, (err, res) => {
+    if (err) {
+      return callback(err)
+    }
+    callback(null, {
+      data: res.Items,
+      total: res.Count
+    })
+  })
 }
 
 export default restClient;
