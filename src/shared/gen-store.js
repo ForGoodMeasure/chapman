@@ -9,7 +9,7 @@ import { routeConfig } from './routes';
 import thunk from 'redux-thunk';
 import { customReducer } from './reducer';
 
-export default function genStore(historyProtocol, preloadedState) {
+export default function genStore(historyProtocol, preloadedState, stageContext) {
 
   let window = global.window || {};
   const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -27,7 +27,7 @@ export default function genStore(historyProtocol, preloadedState) {
         middlewares: [queryMiddleware],
       }),
       createMatchEnhancer(
-        new Matcher(routeConfig),
+        new Matcher(routeConfig(stageContext)),
       ),
     ),
   );

@@ -20,7 +20,7 @@
     "dev": {
       "resourceBase": "",
       "assetBase": "",
-      "apiBase": "/api"
+      "apiBase": "http://localhost:4000/dev-api"
     },
     "static": {
       "resourceBase": "",

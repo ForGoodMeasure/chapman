@@ -1,6 +1,5 @@
-var getStream = require('./get-stream.js')
-var getBoards = require('./get-boards.js')
-var restClient = require('./rest-client.js')
+var getStream = require('./get-stream.js').default;
+var restClient = require('./rest-client.js').default;
 
 const httpWrapper = handler => (event, context, callback) => {
   handler(event, (err, res) => {
@@ -26,5 +25,4 @@ const httpWrapper = handler => (event, context, callback) => {
 }
 
 exports.getStream = httpWrapper(getStream);
-exports.getBoards = httpWrapper(getBoards);
 exports.restClient = httpWrapper(restClient);

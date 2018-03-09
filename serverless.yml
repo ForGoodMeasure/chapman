@@ -1,5 +1,8 @@
 service: chapman-skate
 
+plugins:
+  - serverless-offline
+
 provider:
   name: aws
   runtime: nodejs6.10
@@ -10,6 +13,9 @@ provider:
 
 custom:
   s3BucketName: chapman-skate
+  serverless-offline:
+    port: 4000
+    prefix: dev-api
 
 package:
   exclude:
