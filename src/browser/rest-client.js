@@ -17,13 +17,3 @@ const restClient = config => (type, resource, params) => {
 }
 
 export default restClient;
-
-// switch type {
-//   case 'GET_LIST':
-//   case 'GET_ONE':
-//   case 'CREATE':
-//   case 'UPDATE':
-//   case 'DELETE':
-//   case 'GET_MANY':
-//   case 'GET_MANY_REFERENCE':
-// }

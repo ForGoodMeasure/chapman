@@ -43,6 +43,7 @@ functions:
     handler: dist/server/functions-bundle.restClient
     events:
       - http: POST /rest-client
+      - cors: true
 
 resources:
   Resources:
