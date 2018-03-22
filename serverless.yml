@@ -55,22 +55,3 @@ resources:
           IndexDocument: index.html
         VersioningConfiguration:
           Status: Enabled
-    CloudfrontDistribution:
-      Type: AWS::CloudFront::Distribution
-      Properties:
-        DistributionConfig:
-          Origins:
-          - DomainName: ${self:custom.s3BucketName}.s3.amazonaws.com
-            Id: myS3Origin
-            S3OriginConfig:
-              OriginAccessIdentity: ''
-          Enabled: 'true'
-          DefaultRootObject: index.html
-          DefaultCacheBehavior:
-            TargetOriginId: myS3Origin
-            ForwardedValues:
-              QueryString: 'true'
-              Cookies:
-                Forward: none
-            ViewerProtocolPolicy: allow-all
-          PriceClass: PriceClass_100

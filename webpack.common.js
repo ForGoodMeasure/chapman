@@ -1,7 +1,7 @@
 const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
-const serverConfig = {
+export const serverConfig = {
   target: 'node',
   node: {
     __filename: false,
@@ -55,7 +55,7 @@ const serverConfig = {
   }
 };
 
-const browserConfig = {
+export const browserConfig = {
   target: 'web',
   entry: './src/browser/index.js',
   output: {
@@ -89,5 +89,3 @@ const browserConfig = {
     ]
   }
 }
-
-module.exports = [serverConfig, browserConfig];

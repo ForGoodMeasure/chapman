@@ -50,6 +50,22 @@ function getList(table, params, callback) {
   });
 }
 
+function getOne(table, params, callback) {
+  const id = params.id;
+  const args = {
+    TableName: table,
+    Key: { id }
+  };
+  dynamodb.get(args, (err, res) => {
+    if (err) {
+      return callback(err)
+    }
+    callback(null, {
+      data: res.Item
+    })
+  });
+}
+
 function createItem(table, params, callback) {
   const item = params.data;
   const args = {
@@ -69,20 +85,12 @@ function createItem(table, params, callback) {
   })
 }
 
-function getOne(table, params, callback) {
-  const id = params.id;
-  const args = {
-    TableName: table,
-    Key: { id }
-  };
-  dynamodb.get(args, (err, res) => {
-    if (err) {
-      return callback(err)
-    }
-    callback(null, {
-      data: res.Item
-    })
-  });
+function updateItem(table, params, callback) {
+
+}
+
+function deleteItem(table, params, callback) {
+
 }
 
 function getMany(table, params, callback) {
@@ -102,6 +110,10 @@ function getMany(table, params, callback) {
       data: res.Responses[table]
     })
   });
+}
+
+function getManyReference() {
+
 }
 
 export default restClient;

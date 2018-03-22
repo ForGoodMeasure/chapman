@@ -42,10 +42,6 @@ function cloneContent() {
   run(`aws s3 cp s3://${ S3_BUCKET }/content/content.json ./src/content/content.json`);
 }
 
-function deployBadTv() {
-  run(`aws s3 cp --recursive --acl public-read ./bad-tv s3://${ S3_BUCKET }/bad-tv`)
-}
-
 function makeStatic() {
   staticPublisher.makeRoutes(config);
 }

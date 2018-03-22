@@ -30,10 +30,6 @@ const AdminComponent = (props, { localContext }) => {
   );
 }
 
-AdminComponent.contextTypes = localContextType;
-
-export default AdminComponent
-
 const PostCreate = (props) => (
     <Create {...props}>
         <SimpleForm>
@@ -61,3 +57,6 @@ const PostShow = (props) => (
         </SimpleShowLayout>
     </Show>
 );
+
+AdminComponent.contextTypes = localContextType;
+export default AdminComponent
